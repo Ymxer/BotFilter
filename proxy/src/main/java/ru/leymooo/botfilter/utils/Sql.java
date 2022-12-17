@@ -57,7 +57,7 @@ public class Sql
                 return;
             }
             this.connection = null;
-            logger.info( "[BotFilter] Подключаюсь к базе данных..." );
+            logger.info( "[BotFilter] Connecting to the database..." );
             long start = System.currentTimeMillis();
             if ( Settings.IMP.SQL.STORAGE_TYPE.equalsIgnoreCase( "mysql" ) )
             {
@@ -68,7 +68,7 @@ public class Sql
                 Class.forName( "org.sqlite.JDBC" );
                 connectToDatabase( "JDBC:sqlite:BotFilter/database.db", null, null );
             }
-            logger.log( Level.INFO, "[BotFilter] Подключено ({0} мс)", System.currentTimeMillis() - start );
+            logger.log( Level.INFO, "[BotFilter] Database connected ({0} ms)", System.currentTimeMillis() - start );
             createTable();
             alterLastJoinColumn();
             clearOldUsers();
@@ -124,7 +124,7 @@ public class Sql
             }
         } catch ( Exception e )
         {
-            logger.log( Level.WARNING, "[BotFilter] Ошибка при добавлении столбца в таблицу", e );
+            logger.log( Level.WARNING, "[BotFilter] Error has occurred with adding a column to the table", e );
         }
     }
 
@@ -141,7 +141,7 @@ public class Sql
         botFilter.getUserCache().entrySet().removeIf( (entry) -> entry.getValue().getLastJoin() < until );
         if ( ( before - botFilter.getUsersCount() ) > 0 )
         {
-            logger.log( Level.INFO, "[BotFilter] Удалено {0} аккаунтов из памяти", before - botFilter.getUsersCount() );
+            logger.log( Level.INFO, "[BotFilter] Removed {0} accounts from memory", before - botFilter.getUsersCount() );
         }
         if ( this.connection != null )
         {
@@ -150,7 +150,7 @@ public class Sql
                 int removed = statement.executeUpdate();
                 if ( removed > 0 )
                 {
-                    logger.log( Level.INFO, "[BotFilter] Удалено {0} аккаунтов из датабазы", removed );
+                    logger.log( Level.INFO, "[BotFilter] Removed {0} accounts from the database", removed );
                 }
             }
         }
@@ -195,12 +195,12 @@ public class Sql
             }
             if ( synced > 0 )
             {
-                logger.log( Level.INFO, "[BotFilter] Синхронизировано ({0}) новых проверок", synced );
+                logger.log( Level.INFO, "[BotFilter] Synchronized ({0}) new checks", synced );
             }
             lastSync = curr;
         } catch ( Exception e )
         {
-            logger.log( Level.WARNING, "[BotFilter] Не удалось синхронизировать проверки", e );
+            logger.log( Level.WARNING, "[BotFilter] Check synchronization failed", e );
             setupConnect();
         }
     }
@@ -226,7 +226,7 @@ public class Sql
                 botFilter.addUserToCache( botFilterUser );
                 i++;
             }
-            logger.log( Level.INFO, "[BotFilter] Белый список игроков успешно загружен ({0})", i );
+            logger.log( Level.INFO, "[BotFilter] Player whitelist loaded successfully ({0})", i );
         }
     }
 
@@ -280,7 +280,7 @@ public class Sql
                     }
                 } catch ( SQLException ex )
                 {
-                    logger.log( Level.WARNING, "[BotFilter] Не могу выполнить запрос к базе данных", ex );
+                    logger.log( Level.WARNING, "[BotFilter] Can't query the database", ex );
                     logger.log( Level.WARNING, sql );
                     setupConnect();
                 }
@@ -298,7 +298,7 @@ public class Sql
             } catch ( SQLException ex )
             {
                 setupConnect();
-                logger.log( Level.WARNING, "[BotFilter] Не могу очистить пользователей", ex );
+                logger.log( Level.WARNING, "[BotFilter] Can't clear user list", ex );
             }
 
         }

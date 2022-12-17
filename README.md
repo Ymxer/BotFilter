@@ -1,4 +1,4 @@
-BungeeCord with built in AntiBot protection. (Russian lang)
+BungeeCord with built in AntiBot protection. (English lang)
 ==========
 
 Videos
@@ -10,5 +10,10 @@ Falling check:
 
 Download
 --------
-You can download this protection on [RuBukkit](http://www.rubukkit.org/threads/137038/) or on [Yandex Disk](https://yadi.sk/d/QrSeJWeU3LAq4p)
-=======
+You can download this protection at [Releases](https://github.com/LoyisaSUS/BungeeCord-BotFilter-ENG/releases/)
+
+Credit
+--------
+[Leymooo](https://github.com/Leymooo) (Original BotFilter developer)<br>
+[koloslolya](https://github.com/SleepyKolosLolya) (Help me translate BotFilter)<br>
+[Maxsimuss](https://github.com/Maxsimuss) (Help me translate BotFilter)
