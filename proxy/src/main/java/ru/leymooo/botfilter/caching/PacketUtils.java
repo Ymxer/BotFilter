@@ -152,7 +152,7 @@ public class PacketUtils
         kickMessagesGame.put( KickType.FAILED_FALLING, failedMessage );
         kickMessagesGame.put( KickType.TIMED_OUT, failedMessage );
         kickMessagesGame.put( KickType.COUNTRY, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_COUNTRY ), kickGame ) );
-        kickMessagesGame.put( KickType.BIG_PACKET, new CachedPacket( createKickPacket( "§cНе удалось проверить на бота. Пожалуйста сообщите об этом администрации. (Был отправлен большой пакет)" ), kickGame ) );
+        kickMessagesGame.put( KickType.BIG_PACKET, new CachedPacket( createKickPacket( "§cFailed while checking. Please report it to the administration. (Big packet was sent)" ), kickGame ) );
         kickMessagesLogin.put( KickType.PING, new CachedPacket( createKickPacket( String.join( "", Settings.IMP.SERVER_PING_CHECK.KICK_MESSAGE ) ), kickLogin ) );
         kickMessagesLogin.put( KickType.MANYCHECKS, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_MANY_CHECKS ), kickLogin ) );
         kickMessagesLogin.put( KickType.COUNTRY, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_COUNTRY ), kickLogin ) );
