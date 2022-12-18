@@ -73,7 +73,7 @@ public class Settings extends Config
         public String CHECKING_CAPTCHA_WRONG = "%prefix%&7>> &cYou entered the captcha incorrectly, please try again. You have &a%s &c%s";
         public String SUCCESSFULLY = "%prefix%&7>> &aVerification passed";
         public String KICK_MANY_CHECKS = "%prefix%%nl%%nl%&cWe have detected suspicious activity from your ip address%nl%%nl%&6Please try again in 10 minutes";
-        public String KICK_NOT_PLAYER = "%prefix%%nl%%nl%&You did not pass the verification, maybe you are a bot%nl%&7&oIf that is not so, please try again";
+        public String KICK_NOT_PLAYER = "%prefix%%nl%%nl%&cYou did not pass the verification, maybe you are a bot%nl%&7&oIf that is not so, please try again";
         public String KICK_COUNTRY = "%prefix%%nl%%nl%&cYour country is banned from the server";
         public String KICK_BIG_PING = "%prefix%%nl%%nl%&cYour ping is very high, most likely you are a bot";
         @Comment(
