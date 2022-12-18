@@ -415,7 +415,7 @@ public class BotFilter
         try
         {
             logger.log( Level.INFO, "[BotFilter] Checking for updates..." );
-            URL url = new URL( "https://raw.githubusercontent.com/LoyisaSUS/BungeeCord/master/version.txt" );
+            URL url = new URL( "https://raw.githubusercontent.com/LoyisaSUS/BungeeCord-BotFilter-ENG/master/version.txt" );
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout( 1200 );
             conn.setReadTimeout( 1200 );
