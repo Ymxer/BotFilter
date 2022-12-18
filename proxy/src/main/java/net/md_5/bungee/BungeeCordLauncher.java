@@ -45,7 +45,7 @@ public class BungeeCordLauncher
 
         BungeeCord bungee = new BungeeCord();
         ProxyServer.setInstance( bungee );
-        bungee.getLogger().log( Level.WARNING, "Включаю BungeeCord BotFilter {0} от vk.com/Leymooo_s (http://rubukkit.org/threads/137038)", bungee.getGameVersion() ); //BotFilter
+        bungee.getLogger().log( Level.WARNING, "Enabled BungeeCord BotFilter-ENG {0} from https://github.com/LoyisaSUS/BungeeCord-BotFilter-ENG", bungee.getGameVersion() ); //BotFilter
         bungee.start();
 
         if ( !options.has( "noconsole" ) )
@@ -55,7 +55,7 @@ public class BungeeCordLauncher
             {
                 if ( !bungee.getPluginManager().dispatchCommand( ConsoleCommandSender.getInstance(), line ) )
                 {
-                    bungee.getConsole().sendMessage( new ComponentBuilder( "Команда не найдена :(" ).color( ChatColor.RED ).create() ); //BotFilter
+                    bungee.getConsole().sendMessage( new ComponentBuilder( "Command not found" ).color( ChatColor.RED ).create() ); //BotFilter
                 }
             }
         }
