@@ -57,7 +57,7 @@ public class Sql
                 return;
             }
             this.connection = null;
-            logger.info( "[BotFilter] Connecting to the database..." );
+            logger.info( "[BotFilter] 正在连接到数据库..." );
             long start = System.currentTimeMillis();
             if ( Settings.IMP.SQL.STORAGE_TYPE.equalsIgnoreCase( "mysql" ) )
             {
@@ -68,7 +68,7 @@ public class Sql
                 Class.forName( "org.sqlite.JDBC" );
                 connectToDatabase( "JDBC:sqlite:BotFilter/database.db", null, null );
             }
-            logger.log( Level.INFO, "[BotFilter] Database connected ({0} ms)", System.currentTimeMillis() - start );
+            logger.log( Level.INFO, "[BotFilter] 数据库已连接 ({0} ms)", System.currentTimeMillis() - start );
             createTable();
             alterLastJoinColumn();
             clearOldUsers();
@@ -77,7 +77,7 @@ public class Sql
         } catch ( SQLException | ClassNotFoundException e )
         {
             executor.schedule( this::setupConnect, 5, TimeUnit.SECONDS );
-            logger.log( Level.WARNING, "Can not connect to database or execute sql: ", e );
+            logger.log( Level.WARNING, "无法连接数据库或执行sql: ", e );
             if ( connection != null )
             {
                 Connection conn = connection;
@@ -124,7 +124,7 @@ public class Sql
             }
         } catch ( Exception e )
         {
-            logger.log( Level.WARNING, "[BotFilter] Error has occurred with adding a column to the table", e );
+            logger.log( Level.WARNING, "[BotFilter] 向表中添加列时出错", e );
         }
     }
 
@@ -139,12 +139,12 @@ public class Sql
         long until = calendar.getTimeInMillis();
         int before = botFilter.getUsersCount();
         botFilter.getUserCache().entrySet().removeIf( (entry) -> entry.getValue().getLastJoin() < until );
-        logger.log( Level.INFO, "[BotFilter] Removed {0} accounts from memory", before - botFilter.getUsersCount() );
+        logger.log( Level.INFO, "[BotFilter] 从内存中删除了 {0} 个玩家", before - botFilter.getUsersCount() );
         if ( this.connection != null )
         {
             try ( PreparedStatement statement = connection.prepareStatement( "DELETE FROM `Users` WHERE `LastJoin` < " + until + ";" ) )
             {
-                logger.log( Level.INFO, "[BotFilter] Removed {0} accounts from the database", statement.executeUpdate() );
+                logger.log( Level.INFO, "[BotFilter] 从数据库中删除了 {0} 个玩家", statement.executeUpdate() );
             }
         }
     }
@@ -186,11 +186,11 @@ public class Sql
                 botFilter.addUserToCache( botFilterUser );
                 i++;
             }
-            logger.log( Level.INFO, "[BotFilter] Synchronized ({0}) new checks", i );
+            logger.log( Level.INFO, "[BotFilter] 已同步 ({0}) 个检查", i );
             lastSync = curr;
         } catch ( Exception e )
         {
-            logger.log( Level.WARNING, "[BotFilter] Check synchronization failed", e );
+            logger.log( Level.WARNING, "[BotFilter] 检查同步失败", e );
             setupConnect();
         }
     }
@@ -216,7 +216,7 @@ public class Sql
                 botFilter.addUserToCache( botFilterUser );
                 i++;
             }
-            logger.log( Level.INFO, "[BotFilter] Player whitelist loaded successfully ({0})", i );
+            logger.log( Level.INFO, "[BotFilter] 玩家列表加载成功 ({0})", i );
         }
     }
 
@@ -270,7 +270,7 @@ public class Sql
                     }
                 } catch ( SQLException ex )
                 {
-                    logger.log( Level.WARNING, "[BotFilter] Can't query the database", ex );
+                    logger.log( Level.WARNING, "[BotFilter] 无法查询数据库", ex );
                     logger.log( Level.WARNING, sql );
                     setupConnect();
                 }
@@ -288,7 +288,7 @@ public class Sql
             } catch ( SQLException ex )
             {
                 setupConnect();
-                logger.log( Level.WARNING, "[BotFilter] Can't clear user list", ex );
+                logger.log( Level.WARNING, "[BotFilter] 无法清理玩家列表", ex );
             }
 
         }

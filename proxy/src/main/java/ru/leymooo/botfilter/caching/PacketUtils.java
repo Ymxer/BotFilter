@@ -135,8 +135,8 @@ public class PacketUtils
 
         messages = new CachedMessage[]
         {
-            new CachedMessage( Settings.IMP.MESSAGES.CHECKING_CAPTCHA_WRONG.replaceFirst( "%s", "2" ).replaceFirst( "%s", "chances" ) ),
-            new CachedMessage( Settings.IMP.MESSAGES.CHECKING_CAPTCHA_WRONG.replaceFirst( "%s", "1" ).replaceFirst( "%s", "chances" ) ),
+            new CachedMessage( Settings.IMP.MESSAGES.CHECKING_CAPTCHA_WRONG.replaceFirst( "%s", "2" ).replaceFirst( "%s", "次" ) ),
+            new CachedMessage( Settings.IMP.MESSAGES.CHECKING_CAPTCHA_WRONG.replaceFirst( "%s", "1" ).replaceFirst( "%s", "次" ) ),
             new CachedMessage( Settings.IMP.MESSAGES.CHECKING ),
             new CachedMessage( Settings.IMP.MESSAGES.CHECKING_CAPTCHA ),
             new CachedMessage( Settings.IMP.MESSAGES.SUCCESSFULLY )
@@ -152,7 +152,7 @@ public class PacketUtils
         kickMessagesGame.put( KickType.FAILED_FALLING, failedMessage );
         kickMessagesGame.put( KickType.TIMED_OUT, failedMessage );
         kickMessagesGame.put( KickType.COUNTRY, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_COUNTRY ), kickGame ) );
-        kickMessagesGame.put( KickType.BIG_PACKET, new CachedPacket( createKickPacket( "§cFailed while checking. Please report it to the administration. (Big packet was sent)" ), kickGame ) );
+        kickMessagesGame.put( KickType.BIG_PACKET, new CachedPacket( createKickPacket( "§c验证失败。请向服务器管理员报告。(数据包大小异常)" ), kickGame ) );
         kickMessagesLogin.put( KickType.PING, new CachedPacket( createKickPacket( String.join( "", Settings.IMP.SERVER_PING_CHECK.KICK_MESSAGE ) ), kickLogin ) );
         kickMessagesLogin.put( KickType.MANYCHECKS, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_MANY_CHECKS ), kickLogin ) );
         kickMessagesLogin.put( KickType.COUNTRY, new CachedPacket( createKickPacket( Settings.IMP.MESSAGES.KICK_COUNTRY ), kickLogin ) );
@@ -253,7 +253,7 @@ public class PacketUtils
         int rewritten = VERSION_REWRITE[version];
         if ( rewritten == -1 )
         {
-            throw new IllegalArgumentException( "Version is not supported" );
+            throw new IllegalArgumentException( "不支持的版本" );
         }
         return rewritten;
     }

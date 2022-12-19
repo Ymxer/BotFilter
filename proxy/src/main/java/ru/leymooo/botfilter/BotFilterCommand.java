@@ -35,30 +35,30 @@ public class BotFilterCommand extends Command
         if ( args.length == 0 )
         {
             sender.sendMessage( "§r--------------- §bBotFilter §cv" + Settings.IMP.BOT_FILTER_VERSION + "§r-----------------" );
-            sender.sendMessage( "§r> §lbotfilter reload §6- §aReload the configuration" );
-            sender.sendMessage( "§r> §lbotfilter stat §6- §aShow statistics" );
-            sender.sendMessage( "§r> §lbotfilter export §6- §aExport player list what passed the bot filter" );
-            sender.sendMessage( "§r> §lbotfilter protection on/off §6- §aEnable or disable manual mode 'under attack'" );
+            sender.sendMessage( "§r> §lbotfilter reload §6- §a重载配置文件" );
+            sender.sendMessage( "§r> §lbotfilter stat §6- §a显示统计数据" );
+            sender.sendMessage( "§r> §lbotfilter export §6- §a导出通过假人验证的玩家列表" );
+            sender.sendMessage( "§r> §lbotfilter protection on/off §6- §a手动启用或禁用'受到攻击'模式" );
             sender.sendMessage( "§r--------------- §bBotFilter §r-----------------" );
         } else if ( args[0].equalsIgnoreCase( "reload" ) )
         {
             BungeeCord.getInstance().getBotFilter().disable();
             BungeeCord.getInstance().setBotFilter( new BotFilter( false ) );
-            sender.sendMessage( "§aCommand executed" );
+            sender.sendMessage( "§a指令已执行" );
         } else if ( args[0].equalsIgnoreCase( "stat" ) || args[0].equalsIgnoreCase( "stats" ) || args[0].equalsIgnoreCase( "info" ) )
         {
             sendStat( sender );
         } else if ( args[0].equalsIgnoreCase( "export" ) )
         {
             export( sender, args );
-            sender.sendMessage( "§aCommand executed" );
+            sender.sendMessage( "§a指令已执行" );
         } else if ( args[0].equalsIgnoreCase( "protection" ) )
         {
             if ( args.length >= 2 )
             {
                 boolean enable = args[1].equalsIgnoreCase( "on" );
                 BungeeCord.getInstance().getBotFilter().setForceProtectionEnabled( enable );
-                sender.sendMessage( "§aProtection " + ( enable ? "enabled" : "§cdisabled" ) );
+                sender.sendMessage( "§a保护已 " + ( enable ? "启用" : "§c禁用" ) );
             }
         }
     }
@@ -67,11 +67,12 @@ public class BotFilterCommand extends Command
     {
         BotFilter botFilter = BungeeCord.getInstance().getBotFilter();
         sender.sendMessage( "§r----------------- §bBotFilter §cv" + Settings.IMP.BOT_FILTER_VERSION + " §r-----------------" );
-        sender.sendMessage( "§r> §lUnder attack: " + ( botFilter.isUnderAttack() ? "§cYes" : "§aNo" ) );
-        sender.sendMessage( "§r> §lBots on checking: " + botFilter.getOnlineOnFilter() );
-        sender.sendMessage( "§r> §lVerified player(s): " + botFilter.getUsersCount() );
+        sender.sendMessage( "§r> §l受到攻击: " + ( botFilter.isUnderAttack() ? "§cYes" : "§aNo" ) );
+        sender.sendMessage( "§r> §l验证中的玩家/假人: " + botFilter.getOnlineOnFilter() );
+        sender.sendMessage( "§r> §l已通过验证的玩家: " + botFilter.getUsersCount() );
         sender.sendMessage( "§r> §lDownload BotFilter(RUS): http://www.rubukkit.org/threads/137038/" );
-        sender.sendMessage( "§r> §lDownload BotFilter(ENG): https://github.com/LoyisaSUS/BungeeCord/" );
+        sender.sendMessage( "§r> §lDownload BotFilter(ENG): https://github.com/LoyisaSUS/BungeeCord-BotFilter-ENG" );
+        sender.sendMessage( "§r> §l下载 BotFilter(简体中文): https://github.com/LoyisaSUS/BungeeCord-BotFilter-ZHCN" );
     }
 
     private void export(CommandSender sender, String[] args)
