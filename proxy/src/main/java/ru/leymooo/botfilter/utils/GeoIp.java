@@ -104,7 +104,7 @@ public class GeoIp
                 reader = new DatabaseReader.Builder( file ).withCache( new CHMCache( 4096 * 4 ) ).build();
             } catch ( IOException ex )
             {
-                LOGGER.log( Level.WARNING, "[BotFilter] Cannot connect to GeoLite2 database. Redownloading...", ex );
+                LOGGER.log( Level.WARNING, "[BotFilter] 无法连接到 GeoLite2 数据库. 正在重新下载...", ex );
                 file.delete();
                 setupDataBase( true );
             }
@@ -113,7 +113,7 @@ public class GeoIp
 
     private void downloadDataBase(final File out)
     {
-        LOGGER.log( Level.INFO, "[BotFilter] Downloading GeoLite2 database..." );
+        LOGGER.log( Level.INFO, "[BotFilter] 正在下载 GeoLite2 数据库..." );
         long start = System.currentTimeMillis();
         try
         {
@@ -141,7 +141,7 @@ public class GeoIp
                     }
                 } else
                 {
-                    throw new IOException( "File type is not supported " );
+                    throw new IOException( "不支持的文件类型 " );
                 }
             }
             setupDataBase( true );
@@ -151,10 +151,10 @@ public class GeoIp
             {
                 setupDataBase( false );
             }
-            LOGGER.log( Level.WARNING, "[BotFilter] Can't download GeoLite2 database", ex );
+            LOGGER.log( Level.WARNING, "[BotFilter] 无法下载 GeoLite2 数据库", ex );
             return;
         }
-        LOGGER.log( Level.INFO, "[BotFilter] GeoLite2 database loaded ({0}ms)", System.currentTimeMillis() - start );
+        LOGGER.log( Level.INFO, "[BotFilter] 已加载 GeoLite2 数据库 ({0}ms)", System.currentTimeMillis() - start );
     }
 
     private void saveToFile(InputStream stream, File out) throws IOException
@@ -169,7 +169,7 @@ public class GeoIp
                 {
                     fis.close();
                     out.delete();
-                    LOGGER.log( Level.WARNING, "[BotFilter] Unable to download GeoLite2 database. Removing temp file..." );
+                    LOGGER.log( Level.WARNING, "[BotFilter] 无法下载 GeoLite2 数据库. 正在删除临时文件......" );
                     return;
                 }
                 fis.write( buffer, 0, count );

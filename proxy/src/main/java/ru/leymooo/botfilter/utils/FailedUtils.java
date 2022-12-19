@@ -47,7 +47,7 @@ public class FailedUtils
             }
         } catch ( Exception e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Could not save failed ips to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] 无法将未通过验证的ip保存到文件", e );
         }
     }
 }

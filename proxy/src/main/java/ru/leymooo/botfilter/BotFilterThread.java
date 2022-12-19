@@ -50,7 +50,7 @@ public class BotFilterThread
                                 if ( ( currTime - connector.getJoinTime() ) >= Settings.IMP.TIME_OUT )
                                 {
                                     connector.failed( KickType.TIMED_OUT, state == BotFilter.CheckState.CAPTCHA_ON_POSITION_FAILED
-                                            ? "Too long fall check" : "Captcha not entered" );
+                                            ? "重力检查超时" : "未输入验证码" );
                                     TO_REMOVE_SET.add( entryset.getKey() );
                                     continue;
                                 } else if ( state == BotFilter.CheckState.CAPTCHA_ON_POSITION_FAILED || state == BotFilter.CheckState.ONLY_POSITION )
@@ -66,7 +66,7 @@ public class BotFilterThread
 
                 } catch ( Exception e )
                 {
-                    bungee.getLogger().log( Level.WARNING, "[BotFilter] Unknown error. Please report it to the developer!", e );
+                    bungee.getLogger().log( Level.WARNING, "[BotFilter] 未知错误. 请向开发者报告!", e );
                 } finally
                 {
                     if ( !TO_REMOVE_SET.isEmpty() )

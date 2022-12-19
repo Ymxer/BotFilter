@@ -103,7 +103,7 @@ public class BotFilter
         {
             if ( connector.getUserConnection() != null )
             {
-                connector.getUserConnection().disconnect( "§c[BotFilter] §aFilter reloading..." );
+                connector.getUserConnection().disconnect( "§c[BotFilter] §a重载反假人模块中..." );
             }
             connector.setState( CheckState.FAILED );
         }
@@ -351,7 +351,7 @@ public class BotFilter
         if ( !Settings.IMP.PROTECTION.ALWAYS_CHECK && ManyChecksUtils.isManyChecks( address ) )
         {
             PacketUtils.kickPlayer( KickType.MANYCHECKS, Protocol.LOGIN, ch, version );
-            bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: Too many checks in 10 min", address );
+            bungee.getLogger().log( Level.INFO, "(BF) [{0}] 已断开: 玩家在10分钟之内数次未通过验证", address );
             return;
         }
 
@@ -359,7 +359,7 @@ public class BotFilter
         if ( ping.needCheck() && ping.needKickOrRemove( address ) )
         {
             PacketUtils.kickPlayer( KickType.PING, Protocol.LOGIN, ch, version );
-            bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: The player did not ping the server", address.getHostAddress() );
+            bungee.getLogger().log( Level.INFO, "(BF) [{0}] 已断开: 玩家没有ping过服务器", address.getHostAddress() );
             return;
         }
 
@@ -377,7 +377,7 @@ public class BotFilter
                 if ( checkGeoIp( address ) )
                 {
                     PacketUtils.kickPlayer( KickType.COUNTRY, Protocol.LOGIN, ch, version );
-                    bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: Country is not allowed",
+                    bungee.getLogger().log( Level.INFO, "(BF) [{0}] 已断开: 不允许的国家",
                             address.getHostAddress() );
                     return;
                 }
@@ -414,8 +414,8 @@ public class BotFilter
         Logger logger = BungeeCord.getInstance().getLogger();
         try
         {
-            logger.log( Level.INFO, "[BotFilter] Checking for updates..." );
-            URL url = new URL( "https://raw.githubusercontent.com/DionaMC/BungeeCord-BotFilter-ENG/master/version.txt" );
+            logger.log( Level.INFO, "[BotFilter] 检查更新中..." );
+            URL url = new URL( "https://raw.githubusercontent.com/Loyisa/BungeeCord-BotFilter-ZHCN/master/version.txt" );
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout( 1200 );
             conn.setReadTimeout( 1200 );
@@ -425,21 +425,21 @@ public class BotFilter
                 if ( !in.readLine().trim().equalsIgnoreCase( Settings.IMP.BOT_FILTER_VERSION ) )
                 {
 
-                    logger.log( Level.INFO, "§c[BotFilter] §aNew update available!" );
-                    logger.log( Level.INFO, "§c[BotFilter] §aPlease update to latest version!" );
-                    logger.log( Level.INFO, "§c[BotFilter] §ahttps://github.com/DionaMC/BungeeCord-BotFilter-ENG/releases/" );
+                    logger.log( Level.INFO, "§c[BotFilter] §a有新的更新可用!" );
+                    logger.log( Level.INFO, "§c[BotFilter] §a请更新到最新版本!" );
+                    logger.log( Level.INFO, "§c[BotFilter] §ahttps://github.com/Loyisa/BungeeCord-BotFilter-ZHCN/releases/" );
                     if ( startup )
                     {
                         Thread.sleep( 3500L );
                     }
                 } else
                 {
-                    logger.log( Level.INFO, "[BotFilter] You are using the latest version!" );
+                    logger.log( Level.INFO, "[BotFilter] 你正在使用最新的版本!" );
                 }
             }
         } catch ( IOException | InterruptedException ex )
         {
-            logger.log( Level.WARNING, "[BotFilter] Can't check the update", ex );
+            logger.log( Level.WARNING, "[BotFilter] 无法检查更新", ex );
         }
     }
 

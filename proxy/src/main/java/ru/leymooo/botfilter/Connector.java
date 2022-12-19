@@ -104,7 +104,7 @@ public class Connector extends MoveHandler
             PacketUtils.titles[1].writeTitle( channel, version );
         }
         sendPing();
-        LOGGER.log( Level.INFO, toString() + " has connected" );
+        LOGGER.log( Level.INFO, toString() + " 已连接" );
 
     }
 
@@ -128,7 +128,7 @@ public class Connector extends MoveHandler
         //There are no unknown packets which player will send and will be longer than 2048 bytes during check
         if ( packet.packet == null && packet.buf.readableBytes() > 2048 )
         {
-            failed( KickType.BIG_PACKET, "Sent packet larger than 2048 bytes (" + packet.buf.readableBytes() + ")" );
+            failed( KickType.BIG_PACKET, "发送的数据包大于2048字节 (" + packet.buf.readableBytes() + ")" );
         }
     }
 
@@ -140,7 +140,7 @@ public class Connector extends MoveHandler
             case ONLY_CAPTCHA:
             case ONLY_POSITION:
             case CAPTCHA_POSITION:
-                String info = "(BF) [" + name + "|" + ip + "] left from server during check";
+                String info = "(BF) [" + name + "|" + ip + "] 在验证时退出了服务器";
                 LOGGER.log( Level.INFO, info );
                 FailedUtils.addIpToQueue( ip, KickType.LEAVED );
                 break;
@@ -176,7 +176,7 @@ public class Connector extends MoveHandler
                     changeStateToCaptcha();
                 } else
                 {
-                    failed( KickType.FAILED_FALLING, "Too fast check passed" );
+                    failed( KickType.FAILED_FALLING, "过快的通过验证" );
                 }
             }
             return;
@@ -184,7 +184,7 @@ public class Connector extends MoveHandler
         int devide = lastSend == 0 ? sentPings : sentPings - 1;
         if ( botFilter.checkBigPing( totalping / ( devide <= 0 ? 1 : devide ) ) )
         {
-            failed( KickType.PING, "Big ping" );
+            failed( KickType.PING, "延迟过高" );
             return;
         }
         state = CheckState.SUCCESSFULLY;
@@ -201,7 +201,7 @@ public class Connector extends MoveHandler
         userConnection.setNeedLogin( false );
         userConnection.getPendingConnection().finishLogin( userConnection, true );
         markDisconnected = true;
-        LOGGER.log( Level.INFO, "[BotFilter] Player (" + name + "|" + ip + ") passed verification successfully" );
+        LOGGER.log( Level.INFO, "[BotFilter] 玩家 (" + name + "|" + ip + ") 成功地通过了验证" );
     }
 
     @Override
@@ -227,7 +227,7 @@ public class Connector extends MoveHandler
                 changeStateToCaptcha();
             } else
             {
-                failed( KickType.FAILED_FALLING, "Failed position check" );
+                failed( KickType.FAILED_FALLING, "重力检查失败" );
             }
             return;
         }
@@ -281,7 +281,7 @@ public class Connector extends MoveHandler
         {
             if ( message.length() > 256 )
             {
-                failed( KickType.FAILED_CAPTCHA, "Too long message" );
+                failed( KickType.FAILED_CAPTCHA, "消息过长" );
                 return;
             }
             if ( message.replace( "/", "" ).equals( captchaAnswer ) )
@@ -293,7 +293,7 @@ public class Connector extends MoveHandler
                 sendCaptcha();
             } else
             {
-                failed( KickType.FAILED_CAPTCHA, "Failed captcha check" );
+                failed( KickType.FAILED_CAPTCHA, "验证码检查失败" );
             }
         }
     }
@@ -312,7 +312,7 @@ public class Connector extends MoveHandler
         {
             if ( lastSend == 0 )
             {
-                failed( KickType.PING, "Tried send fake ping" );
+                failed( KickType.PING, "尝试发送虚假的 keepAlive 包" );
                 return;
             }
             long ping = System.currentTimeMillis() - lastSend;
@@ -330,7 +330,7 @@ public class Connector extends MoveHandler
 
         if ( pluginMessagesBytes > MAX_PLUGIN_MESSAGES_BYTES )
         {
-            failed( KickType.BIG_PACKET, "Bad PluginMessage's" );
+            failed( KickType.BIG_PACKET, "错误的PluginMessage" );
             return;
         }
 
@@ -384,7 +384,7 @@ public class Connector extends MoveHandler
         state = CheckState.FAILED;
         PacketUtils.kickPlayer( type, Protocol.GAME, userConnection.getCh(), version );
         markDisconnected = true;
-        LOGGER.log( Level.INFO, "(BF) [" + name + "|" + ip + "] check failed: " + kickMessage );
+        LOGGER.log( Level.INFO, "(BF) [" + name + "|" + ip + "] 验证失败: " + kickMessage );
         if ( type != KickType.BIG_PACKET )
         {
             FailedUtils.addIpToQueue( ip, type );
