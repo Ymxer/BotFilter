@@ -71,7 +71,7 @@ public class BotFilterCommand extends Command
         sender.sendMessage( "§r> §lBots on checking: " + botFilter.getOnlineOnFilter() );
         sender.sendMessage( "§r> §lVerified player(s): " + botFilter.getUsersCount() );
         sender.sendMessage( "§r> §lDownload BotFilter(RUS): http://www.rubukkit.org/threads/137038/" );
-        sender.sendMessage( "§r> §lDownload BotFilter(ENG): https://github.com/LoyisaSUS/BungeeCord/" );
+        sender.sendMessage( "§r> §lDownload BotFilter(ENG): https://github.com/DionaMC/BungeeCord-BotFilter-ENG/" );
     }
 
     private void export(CommandSender sender, String[] args)

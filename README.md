@@ -10,7 +10,7 @@ Falling check:
 
 Download
 --------
-You can download this protection at [Releases](https://github.com/LoyisaSUS/BungeeCord-BotFilter-ENG/releases/)
+You can download this protection at [Releases](https://github.com/DionaMC/BungeeCord-BotFilter-ENG/releases/)
 
 Credit
 --------
