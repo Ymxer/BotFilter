@@ -81,10 +81,10 @@ public class BotFilterCommand extends Command
 
         if ( args.length == 1 )
         {
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] §6- §aExport the list of players who "
-                    + "passed the check within the specified time. Use \"ALL\" to get a list of all times" );
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] JOIN §6- §aExport the list of players who "
-                    + "logged into the server at a specified time. (including players who passed the check)" );
+            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] §6- §a导出指定时间内通过验证的玩家列表. "
+                    + "使用 \"ALL\" 获取所有时间的列表" );
+            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] JOIN §6- §a导出指定时间登录服务器的玩家列表. "
+                    + "(包括通过验证的玩家)" );
             return;
         }
         if ( args[1].equalsIgnoreCase( "all" ) )
@@ -122,7 +122,7 @@ public class BotFilterCommand extends Command
             exportToFile( out, join );
         } catch ( Exception e )
         {
-            sender.sendMessage( "§cPlease input a number value" );
+            sender.sendMessage( "§c请输入一个数值" );
         }
     }
 
@@ -134,7 +134,7 @@ public class BotFilterCommand extends Command
             Files.write( outFile, out, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING );
         } catch ( IOException e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Could not export ips to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] 无法将 ip 导出到文件", e );
         }
     }
 
