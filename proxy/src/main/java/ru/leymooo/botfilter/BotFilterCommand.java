@@ -80,10 +80,10 @@ public class BotFilterCommand extends Command
 
         if ( args.length == 1 )
         {
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] §6- §aExport the list of players what "
-                    + "have passed the check for the specified time. Use \"ALL\" to get list for all the time" );
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] JOIN §6- §aExport the list of players what "
-                    + "have passed the check for the specified time. (Including players what have passed the check)" );
+            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] §6- §aExport the list of players who "
+                    + "passed the check within the specified time. Use \"ALL\" to get a list of all times" );
+            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] JOIN §6- §aExport the list of players who "
+                    + "logged into the server at a specified time. (including players who passed the check)" );
             return;
         }
         if ( args[1].equalsIgnoreCase( "all" ) )
