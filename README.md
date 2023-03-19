@@ -17,3 +17,15 @@ Credit
 [Leymooo](https://github.com/Leymooo) (Original BotFilter developer)<br>
 [koloslolya](https://github.com/SleepyKolosLolya) (Help me translate BotFilter)<br>
 [Maxsimuss](https://github.com/Maxsimuss) (Help me translate BotFilter)
+
+Troubleshooting
+--------
+Q: Why I get an error when I start the server like this:
+```
+java.lang.reflect.InaccessibleObjectException: Unable to make private native java.lang.reflect.Field[] java.lang.Class.getDeclaredFields0(boolean) accessible: module java.base does not "opens java.lang" to unnamed module
+```
+
+A: You need to add this to your JVM arguments:
+```
+--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED
+```
