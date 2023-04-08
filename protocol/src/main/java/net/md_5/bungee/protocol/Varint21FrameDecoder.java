@@ -63,7 +63,6 @@ public class Varint21FrameDecoder extends ByteToMessageDecoder
                 {
                     checkPacketLength( packetLength );
                 }
-
                 if ( in.readableBytes() < packetLength )
                 {
                     in.readerIndex( origReaderIndex );
