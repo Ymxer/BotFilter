@@ -1,4 +1,5 @@
 BungeeCord, 但是内置反假人+反MOTD攻击
+--------
 BotFilter,MotdLimit,UltimateAntibot || FIREWALL & ANTI-VPN Bungeecord, Spigot & Velocity
 ==========
 
