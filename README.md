@@ -1,12 +1,12 @@
 BungeeCord, 但是内置反假人+反MOTD攻击
 ==========
 
-视频演示
+视频演示 BotFilter-MotdLimit
 --------
 验证码+重力检查:
-[![Only captcha](https://i.ytimg.com/vi/S27EbttIG-8/1.jpg)](https://youtu.be/S27EbttIG-8)
+[![Only captcha](https://i.ytimg.com/vi/S27EbttIG-8/1.jpg)](1)
 重力检查:
-[![Only captcha](https://i.ytimg.com/vi/23O16oJyvl8/1.jpg)](https://youtu.be/23O16oJyvl8)
+[![Only captcha](https://i.ytimg.com/vi/23O16oJyvl8/1.jpg)](1)
 
 下载
 --------
