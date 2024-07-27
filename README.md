@@ -10,6 +10,19 @@ BotFilter MotdLimit UltimateAntibot
 重力检查:
 [![Only captcha](https://i.ytimg.com/vi/23O16oJyvl8/1.jpg)](1)
 
+特征
+-------
+* Fully customizable (config & messages)
+* VPN system for detecting slow attacks.
+* Hook to IPSet & IPTables for handling large attacks.
+* A great variety of checks to detect as many bots as possible.
+* An intelligent filter that activates only during attacks to avoid filtering important server errors.
+* An easy verification system for non-bot players during attacks.
+* An ID based blacklist system that will allow you to manage your blacklist more easily!
+* Automatic notifications when there is an attack.
+* Automatic attack logging system!
+* An autopurger for blacklist, whitelist and attack logs.
+
 下载
 --------
 你可以在[Releases](https://github.com/Loyisa/BungeeCord-BotFilter-ZHCN/releases/) 下载
