@@ -38,6 +38,7 @@ BAD PACKET (BUNGEECORD / WATERFALL / VELOCITY)
 特别鸣谢
 --------
 [Leymooo](https://github.com/Leymooo) (BotFilter 开发者)<br>
+[Ymxer](https://github.com/Ymxer) (Config 提供者)<br>
 [koloslolya](https://github.com/SleepyKolosLolya) (帮助了我翻译 BotFilter (俄->英))<br>
 [Maxsimuss](https://github.com/Maxsimuss) (帮助了我翻译 BotFilter (俄->英))<br>
 
