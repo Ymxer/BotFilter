@@ -12,16 +12,16 @@ BotFilter MotdLimit UltimateAntibot
 
 特征
 -------
-* Fully customizable (config & messages)
-* VPN system for detecting slow attacks.
-* Hook to IPSet & IPTables for handling large attacks.
-* A great variety of checks to detect as many bots as possible.
-* An intelligent filter that activates only during attacks to avoid filtering important server errors.
-* An easy verification system for non-bot players during attacks.
-* An ID based blacklist system that will allow you to manage your blacklist more easily!
-* Automatic notifications when there is an attack.
-* Automatic attack logging system!
-* An autopurger for blacklist, whitelist and attack logs.
+* 完全可定制（配置和信息）
+* 检测慢速攻击的 VPN 代理系统
+* 与 IPSet 和 IPTables 挂钩，用于处理大型攻击
+* 提供多种检查，以检测尽可能多的僵尸
+* 智能过滤器只在攻击时启动，以避免过滤重要的服务器错误
+* 攻击期间非僵尸玩家的简易验证系统
+* 基于 ID 的黑名单系统，可让您更轻松地管理黑名单！
+* 发生攻击时自动发出通知
+* 自动攻击记录系统
+* 黑名单、白名单和攻击日志的自动搜索器
 
 下载
 --------
