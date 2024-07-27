@@ -10,6 +10,14 @@ BotFilter MotdLimit UltimateAntibot
 重力检查:
 [![Only captcha](https://i.ytimg.com/vi/23O16oJyvl8/1.jpg)](1)
 
+保护
+-------
+快速加入
+慢速加入（可绕过使用大厅服务器上的验证码插件代替）
+PING 攻击
+综合
+BAD PACKET (BUNGEECORD / WATERFALL / VELOCITY)
+
 特征
 -------
 * 完全可定制（配置和信息）
