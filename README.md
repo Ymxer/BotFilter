@@ -1,4 +1,4 @@
-BungeeCord, 但是内置反假人. (Simplified Chinese)
+BungeeCord, 但是内置反假人+反MOTD攻击
 ==========
 
 视频演示
